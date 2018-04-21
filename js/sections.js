@@ -168,13 +168,13 @@ var scrollVis = function () {
       .attr('class', 'title openvis-title')
       .attr('x', width / 2)
       .attr('y', height / 3)
-      .text('2013');
+      .text('Machine');
 
     g.append('text')
       .attr('class', 'sub-title openvis-title')
       .attr('x', width / 2)
       .attr('y', (height / 3) + (height / 5))
-      .text('OpenVis Conf');
+      .text('Bias');
 
     g.selectAll('.openvis-title')
       .attr('opacity', 0);
@@ -184,13 +184,13 @@ var scrollVis = function () {
       .attr('class', 'title count-title highlight')
       .attr('x', width / 2)
       .attr('y', height / 3)
-      .text('180');
+      .text('10,000');
 
     g.append('text')
       .attr('class', 'sub-title count-title')
       .attr('x', width / 2)
       .attr('y', (height / 3) + (height / 5))
-      .text('Filler Words');
+      .text('Defendants');
 
     g.selectAll('.count-title')
       .attr('opacity', 0);
@@ -300,6 +300,7 @@ var scrollVis = function () {
     activateFunctions[6] = showHistAll;
     activateFunctions[7] = showCough;
     activateFunctions[8] = showHistAll;
+    activateFunctions[9] = showHistAll;
 
     // updateFunctions are called while
     // in a particular section to update
@@ -307,7 +308,7 @@ var scrollVis = function () {
     // Most sections do not need to be updated
     // for all scrolling and so are set to
     // no-op functions.
-    for (var i = 0; i < 9; i++) {
+    for (var i = 0; i < 10; i++) {
       updateFunctions[i] = function () {};
     }
     updateFunctions[7] = updateCough;
