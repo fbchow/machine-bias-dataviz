@@ -192,6 +192,12 @@ var scrollVis = function () {
       .attr('y', (height / 3) + (height / 5))
       .text('Defendants');
 
+    g.append('text')
+      .attr('class', 'sub-title count-title')
+      .attr('x', width / 2)
+      .attr('y', (height / 3) + (height / 3))
+      .text('Sampled');
+
     g.selectAll('.count-title')
       .attr('opacity', 0);
 
