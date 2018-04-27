@@ -48,7 +48,9 @@ var scrollVis = function () {
     .range([0, height - 50], 0.1, 0.1);
 
   // Color is determined just by the index of the bars
-  var barColors = { 0: '#008080', 1: '#399785', 2: '#5AAF8C' };
+  // turquoise colors
+  // var barColors = { 0: '#008080', 1: '#399785', 2: '#5AAF8C' };
+  var barColors = { 0: '#e8dfc7', 1: '#399785', 2: '#f2efe6' };
 
   // The histogram display shows the
   // first 30 minutes of data
@@ -69,7 +71,7 @@ var scrollVis = function () {
   // @v4 using new scale name
   var coughColorScale = d3.scaleLinear()
     .domain([0, 1.0])
-    .range(['#008080', 'red']);
+    .range(['#e8dfc7', 'red']);
 
   // You could probably get fancy and
   // use just one axis, modifying the
@@ -175,6 +177,22 @@ var scrollVis = function () {
       .attr('x', width / 2)
       .attr('y', (height / 3) + (height / 5))
       .text('Bias');
+
+    g.append('image')
+    .attr('xlink:href','img/breward-county-survey-min-wage.png')
+    .attr('class', 'survey-image')
+    .attr('height', '332')
+    .attr('width', '600')
+    .attr('opacity', 0);
+
+    // g.append('svg:image')
+    // .attr({
+    //   'xlink:href': 'http://www.iconpng.com/png/beautiful_flat_color/computer.png',  // can also add svg file here
+    //   x: 0,
+    //   y: 0,
+    //   width: 128,
+    //   height: 128
+    // });
 
     g.selectAll('.openvis-title')
       .attr('opacity', 0);
@@ -298,6 +316,7 @@ var scrollVis = function () {
     // activateFunctions are called each
     // time the active section changes
     activateFunctions[0] = showTitle;
+    // activateFunctions[1] = showMap;
     activateFunctions[1] = showFillerTitle;
     activateFunctions[2] = showGrid;
     activateFunctions[3] = highlightGrid;
@@ -354,6 +373,20 @@ var scrollVis = function () {
       .duration(600)
       .attr('opacity', 1.0);
   }
+
+    g.selectAll('.survey-image')
+      .transition()
+      .duration(1000)
+      .attr('opacity', 0);
+
+// function showMap(){
+//   g.selectAll('.openvis-title')
+//     .transition()
+//     .duration(0)
+//     .attr('opacity', 0)
+//     .attr('fill', '#ddd')
+//     .text("Hello");
+// }
 
   /**
    * showFillerTitle - filler counts
@@ -448,7 +481,7 @@ var scrollVis = function () {
       .transition()
       .duration(800)
       .attr('opacity', 1.0)
-      .attr('fill', function (d) { return d.filler ? '#008080' : '#ddd'; });
+      .attr('fill', function (d) { return d.filler ? '#bf9898' : '#ddd'; });
   }
 
   /**
@@ -556,7 +589,7 @@ var scrollVis = function () {
     g.selectAll('.hist')
       .transition('color')
       .duration(500)
-      .style('fill', '#008080');
+      .style('fill', '#bf9898');
 
     g.selectAll('.hist')
       .transition()
@@ -641,7 +674,7 @@ var scrollVis = function () {
       .transition('cough')
       .duration(0)
       .style('fill', function (d) {
-        return (d.x0 >= 14) ? coughColorScale(progress) : '#008080';
+        return (d.x0 >= 14) ? coughColorScale(progress) : '#bf9898';
       });
   }
 

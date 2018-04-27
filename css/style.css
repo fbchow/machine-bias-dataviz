@@ -43,8 +43,8 @@
   position: fixed;
   top: 60px;
   z-index: 1;
-/*  margin-left: 0;
-  height: 600px; 
+  margin-left: 0;
+/*  height: 600px; 
   width: 600px; 
   background-color: #ddd; */
 }
@@ -67,7 +67,8 @@
 }
 
 .highlight {
-  fill: #008080;
+  /*fill: #008080;*/
+  fill: #3D484B;
   font-weight: bold;
 }
 
