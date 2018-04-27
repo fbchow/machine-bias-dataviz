@@ -179,6 +179,15 @@ var scrollVis = function () {
     g.selectAll('.openvis-title')
       .attr('opacity', 0);
 
+    g.append('text')
+      .attr('x', width / 2)
+      .attr('y', height / 3)
+      .attr('class', 'xiaotai')
+      .text('Xiaotai');
+
+    g.selectAll('.xiaotai')
+      .attr('opacity',0);
+
     // count filler word count title
     g.append('text')
       .attr('class', 'title count-title highlight')
@@ -299,14 +308,15 @@ var scrollVis = function () {
     // time the active section changes
     activateFunctions[0] = showTitle;
     activateFunctions[1] = showFillerTitle;
-    activateFunctions[2] = showGrid;
-    activateFunctions[3] = highlightGrid;
-    activateFunctions[4] = showBar;
-    activateFunctions[5] = showHistPart;
-    activateFunctions[6] = showHistAll;
-    activateFunctions[7] = showCough;
-    activateFunctions[8] = showHistAll;
+    activateFunctions[2] = showXiaotai;
+    activateFunctions[3] = showGrid;
+    activateFunctions[4] = highlightGrid;
+    activateFunctions[5] = showBar;
+    activateFunctions[6] = showHistPart;
+    activateFunctions[7] = showHistAll;
+    activateFunctions[8] = showCough;
     activateFunctions[9] = showHistAll;
+    activateFunctions[10] = showHistAll;
 
     // updateFunctions are called while
     // in a particular section to update
@@ -380,6 +390,25 @@ var scrollVis = function () {
       .attr('opacity', 1.0);
   }
 
+  function showXiaotai(){
+    g.selectAll('.count-title')
+      .transition()
+      .duration(0)
+      .attr('opacity', 0);
+
+    g.selectAll('.xiaotai')
+      .transition()
+      .duration(600)
+      .attr('opacity', 1.0);
+
+    g.selectAll('.square')
+      .transition()
+      .duration(0)
+      .attr('opacity', 0);
+  }
+
+
+
   /**
    * showGrid - square grid
    *
@@ -389,7 +418,11 @@ var scrollVis = function () {
    *
    */
   function showGrid() {
-    g.selectAll('.count-title')
+    // g.selectAll('.count-title')
+    //   .transition()
+    //   .duration(0)
+    //   .attr('opacity', 0);
+    g.selectAll('.xiaotai')
       .transition()
       .duration(0)
       .attr('opacity', 0);
